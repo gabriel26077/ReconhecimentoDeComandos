@@ -1,0 +1,10 @@
+svm normalizado max dataset
+
+{'verde', 'azul', 'vermelho'}
+Acurácia: 91.18%
+Precisão: 91.11%
+Revocação: 90.91%
+Matriz de Confusão:
+[[36  0  0]
+ [ 0 30  3]
+ [ 0  6 27]]

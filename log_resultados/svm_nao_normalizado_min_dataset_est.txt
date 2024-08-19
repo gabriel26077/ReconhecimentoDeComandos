@@ -1,0 +1,10 @@
+svm não normalizado min dataset
+
+{'azul', 'vermelho', 'verde'}
+Acurácia: 63.33%
+Precisão: 48.63%
+Revocação: 65.56%
+Matriz de Confusão:
+[[29  1  0]
+ [ 0 28  0]
+ [ 0 32  0]]

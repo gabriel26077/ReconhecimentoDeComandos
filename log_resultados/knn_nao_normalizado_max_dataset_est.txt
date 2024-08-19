@@ -1,0 +1,6 @@
+knn não normalizado max dataset
+
+{'vermelho', 'verde', 'azul'}
+Acurácia: 95.10%
+Precisão: 95.19%
+Revocação: 94.95%

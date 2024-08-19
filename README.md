@@ -69,6 +69,101 @@ Para tornar o projeto mais interativo, foi desenvolvido um circuito utilizando o
 # Resultados
 
 
-Durante o projeto, ficou evidente que realizar a inferência com dados pré-gravados — em contraste com a inferência em tempo real — resulta em uma precisão muito maior. Esse desvio na precisão ao usar dados em tempo real pode ser atribuído a dois problemas principais. Em primeiro lugar, ao gravar áudio com um microfone, é comum observar um pico de intensidade no início da gravação que se estabiliza após um breve período. Como os áudios de treinamento foram cortados para excluir esses picos, eles não estão representados nos dados de treinamento, o que faz com que tenham um impacto considerável na inferência em tempo real. Em segundo lugar, capturar exatamente o trecho de áudio correspondente apenas à voz em tempo real é extremamente desafiador, especialmente quando comparado ao processo manual de corte realizado nos áudios de treinamento.
+Durante o projeto, ficou evidente que realizar a inferência com dados pré-gravados — em contraste com a inferência em tempo real — resulta em uma precisão muito maior. Esse desvio na precisão ao usar dados em tempo real pode ser atribuído a dois problemas principais. Em primeiro lugar, ao gravar áudio com um microfone, é comum observar um pico de intensidade no início da gravação que se estabiliza após um breve período. Como os áudios de treinamento foram cortados para excluir esses picos, eles não estão representados nos dados de treinamento, o que faz com que tenham um impacto considerável na inferência em tempo real. Em segundo lugar, capturar exatamente o trecho de áudio correspondente apenas à voz em tempo real é uma tarefa difícil, especialmente quando comparado ao processo manual de corte realizado nos áudios de treinamento.
 
-Para efeitos práticos, o modelo tem apresentado um bom desempenho na classificação de áudio. No entanto, o principal desafio reside no tratamento do áudio antes da classificação, particularmente na adaptação do processo de gravação e pré-processamento para se alinhar com a precisão observada nos dados pré-gravados. De fato, para o mesmo áudio gravado previamente, é possível obter uma inferência correta após o corte manual, evidenciando a dificuldade de replicar a precisão do treinamento em condições de gravação ao vivo.
+Além disso, ao longo do processo de classificação, observou-se que o modelo de Support Vector Machine (SVM) apresentou um desempenho significativamente melhor quando os dados foram normalizados. A normalização dos dados melhorou a capacidade do modelo em lidar com a variabilidade dos mesmos e contribuiu para uma classificação mais precisa.
+
+Por outro lado, no caso do classificador k-Nearest Neighbors (k-NN), o fator mais impactante no desempenho foi o aumento do tamanho do conjunto de dados. Observou-se que a expansão do conjunto de amostras levou a melhorias notáveis na precisão do k-NN, sugerindo que o desempenho deste modelo é altamente sensível ao volume de dados disponível para treinamento.
+
+A análise dos resultados dos testes realizados com diferentes tamanhos de conjuntos de dados confirmou essas observações, evidenciando a importância da normalização para o SVM e a influência do tamanho do conjunto de dados no desempenho do k-NN.
+
+Segue abaixo alguns detalhes das diferentes inferencias realizadas.
+
+## Dados não normalizados
+
+
+### knn reduzido 
+![Matriz de confusão do processo de inferencia knn com dados não normalizados e dataset reduzido](figuras/knn_nao_normalizado_min_dataset.png)
+<p align="center">
+  Matriz de confusão do knn não normalizado e dataset reduzido.
+</p>
+
+* Acurácia: 86.67%
+* Precisão: 86.85%
+* Revocação: 86.69%
+
+### knn expandido
+![Matriz de confusão do processo de inferencia knn com dados não normalizados e dataset expandido](figuras/knn_nao_normalizado_max_dataset.png)
+<p align="center">
+  Matriz de confusão do knn não normalizado e dataset expandido.
+</p>
+
+* Acurácia: 95.10%
+* Precisão: 95.19%
+* Revocação: 94.95%
+
+### svm reduzido 
+![Matriz de confusão do processo de inferencia svm com dados não normalizados e dataset reduzido](figuras/svm_nao_normalizado_min_dataset.png)
+<p align="center">
+  Matriz de confusão do svm não normalizado e dataset reduzido.
+</p>
+
+* Acurácia: 63.33%
+* Precisão: 48.63%
+* Revocação: 65.56%
+
+### svm expandido
+![Matriz de confusão do processo de inferencia svm com dados não normalizados e dataset expandido](figuras/svm_nao_norrmalizado_max_dataset.png)
+<p align="center">
+  Matriz de confusão do svm não normalizado e dataset expandido.
+</p>
+
+* Acurácia: 72.55%
+* Precisão: 75.76%
+* Revocação: 71.72%
+
+## Dados normalizados
+
+### knn reduzido
+![Matriz de confusão do processo de inferencia knn com dados normalizados e dataset reduzido](figuras/knn_normalizado_min_dataset.png)
+<p align="center">
+  Matriz de confusão do knn normalizado e dataset reduzido.
+</p>
+
+* Acurácia: 90.00%
+* Precisão: 90.92%
+* Revocação: 89.66%
+
+### knn expandido
+
+![Matriz de confusão do processo de inferencia knn com dados normalizados e dataset expandido](figuras/knn_normalizado_min_dataset.png)
+<p align="center">
+  Matriz de confusão do knn normalizado e dataset reduzido.
+</p>
+
+* Acurácia: 96.08%
+* Precisão: 96.07%
+* Revocação: 95.96%
+
+### svm reduzido
+
+![Matriz de confusão do processo de inferencia svm com dados normalizados e dataset reduzido](figuras/svm_normalizado_min_dataset.png)
+<p align="center">
+  Matriz de confusão do svm normalizado e dataset reduzido.
+</p>
+
+* Acurácia: 88.89%
+* Precisão: 89.16%
+* Revocação: 88.62%
+
+### svm expandido
+
+![Matriz de confusão do processo de inferencia svm com dados normalizados e dataset expandido](figuras/svm_norrmalizado_max_dataset.png)
+<p align="center">
+  Matriz de confusão do svm normalizado e dataset expandido.
+</p>
+
+* Acurácia: 91.18%
+* Precisão: 91.11%
+R* evocação: 90.91%
+

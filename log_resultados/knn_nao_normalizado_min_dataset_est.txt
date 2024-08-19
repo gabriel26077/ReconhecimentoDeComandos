@@ -1,0 +1,6 @@
+knn não normalizado min dataset
+
+{'azul', 'vermelho', 'verde'}
+Acurácia: 86.67%
+Precisão: 86.85%
+Revocação: 86.69%
