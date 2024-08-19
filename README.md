@@ -93,7 +93,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 * Revocação: 86.69%
 
 ### knn expandido
-![Matriz de confusão do processo de inferencia knn com dados não normalizados e dataset expandido](figuras/knn_nao_normalizado_max_dataset.png)
+![Matriz de confusão do processo de inferencia knn com dados não normalizados e dataset expandido](figuras/knn_normalizado_max_dataset.png)
 <p align="center">
   Matriz de confusão do knn não normalizado e dataset expandido.
 </p>
@@ -158,7 +158,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 
 ### svm expandido
 
-![Matriz de confusão do processo de inferencia svm com dados normalizados e dataset expandido](figuras/svm_norrmalizado_max_dataset.png)
+![Matriz de confusão do processo de inferencia svm com dados normalizados e dataset expandido](figuras/svm_normalizado_max_dataset.png)
 <p align="center">
   Matriz de confusão do svm normalizado e dataset expandido.
 </p>
