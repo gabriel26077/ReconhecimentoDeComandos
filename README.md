@@ -2,14 +2,38 @@
 
 O reconhecimento de comandos de voz é uma tecnologia que permite que sistemas computacionais interpretem e respondam a comandos dados por meio da fala humana. Utilizando algoritmos avançados de processamento de linguagem natural (PLN) e aprendizado de máquina, esse sistema converte o áudio da voz em texto, que pode então ser processado e executado por aplicativos ou dispositivos. A importância dessa tecnologia é ampla e crescente, impactando significativamente áreas como acessibilidade, onde permite que pessoas com deficiências físicas interajam com dispositivos de forma mais intuitiva, e automação, facilitando o controle de dispositivos e serviços através de comandos simples e naturais. Além disso, no campo da inteligência artificial, o reconhecimento de voz melhora a interação homem-máquina, tornando a tecnologia mais acessível e eficiente em diversas aplicações, desde assistentes pessoais digitais até sistemas de atendimento ao cliente. Em um mundo cada vez mais dependente de interfaces naturais e personalizadas, a evolução e a precisão do reconhecimento de voz desempenham um papel crucial na melhoria da experiência do usuário e na inclusão digital.
 
-# Proposta deste trabalho
+## Proposta deste trabalho
 
 Este trabalho possui caráter acadêmico e integra a avaliação da terceira unidade da disciplina de Aprendizado de Máquina do IMD-UFRN. A proposta inicial consistia em desenvolver um sistema de reconhecimento de três comandos distintos em tempo real, sem a necessidade de utilizar algoritmos de Processamento de Linguagem Natural (PLN). Embora não tenha sido possível concluir a ideia original, os erros e acertos encontrados ao longo do processo resultaram na compilação de informações valiosas que podem ser de grande utilidade para alunos que pretendam empreender projetos semelhantes. Este trabalho, portanto, oferece uma visão prática e reflexiva sobre os desafios e soluções envolvidas no desenvolvimento de sistemas de reconhecimento de comandos de voz, contribuindo para o aprendizado e aprimoramento das práticas acadêmicas na área.
 
-# Conteúdo teórico
+## Revisão Teórica
+
+### Aprendizado de Máquina e Classificação
+O processo de classificação no aprendizado de máquina envolve a atribuição de uma ou mais categorias predefinidas a novas observações ou dados, com base em um conjunto de exemplos rotulados previamente conhecidos. Para realizar essa tarefa, existem diversos algoritmos disponíveis, cada um com suas características e aplicações específicas. Neste trabalho, utilizaremos os algoritmos k-Nearest Neighbors (k-NN) e Support Vector Machines (SVM) para a classificação de comandos de voz.
+
+O k-NN é um algoritmo de classificação baseado em instâncias que classifica novos dados comparando-os com os k exemplos mais próximos no espaço de características. A ideia central é que objetos semelhantes estão próximos uns dos outros. Assim, dado um novo exemplo, o k-NN identifica os k exemplos mais próximos no conjunto de treinamento e, a partir da maioria das classes desses exemplos, atribui uma classe ao novo dado. O desempenho do k-NN pode ser influenciado pela escolha do valor de k e pela presença de ruídos ou dados não representativos.
+
+Já o SVM é um algoritmo de classificação que busca encontrar um hiperplano que maximize a margem entre diferentes classes no espaço de características. Este hiperplano separa as classes de maneira a garantir que a distância entre as instâncias mais próximas de cada classe, chamadas de vetores de suporte, seja a maior possível. O SVM é particularmente eficaz em problemas de classificação binária e pode ser estendido para lidar com múltiplas classes. Além disso, o SVM pode ser utilizado em espaços de alta dimensão e é robusto em situações onde há uma clara separação entre as classes, especialmente quando os dados são normalizados.
+
+### Coeficientes Cepstrais de Frequência Mel (MFCCs)
+
+Neste projeto, foram extraídos os 13 primeiros coeficientes de Mel Frequency Cepstral Coefficients (MFCCs) de cada áudio. Os MFCCs são amplamente utilizados para capturar as características essenciais do sinal sonoro, refletindo as propriedades que são mais relevantes para a percepção auditiva humana. A escolha de 13 coeficientes é comum, pois proporciona um equilíbrio eficaz entre a quantidade de informação retida e a complexidade do modelo.
+
+A escala de Mel é uma escala perceptual que imita a forma como os humanos percebem a frequência dos sons. Diferente da escala linear em Hertz, que mede a frequência em termos absolutos, a escala Mel ajusta a frequência para refletir a sensibilidade auditiva, sendo mais sensível às variações em baixas frequências e menos sensível em altas frequências. Utilizar a escala de Mel na extração de características ajuda a reduzir a dimensionalidade dos dados, preservando as informações mais relevantes e facilitando a análise e a inferência em modelos de aprendizado de máquina.
+
+### Normalização
+
+No projeto, foi utilizada a normalização padrão dos dados com o StandardScaler. Normalizar os dados é importante porque, em geral, os modelos de aprendizado de máquina tendem a funcionar melhor quando todas as características estão na mesma escala. Dados com magnitudes muito diferentes podem fazer com que características com valores maiores dominem o processo de treinamento, o que pode afetar negativamente o desempenho do modelo. O StandardScaler normaliza os dados transformando-os para que tenham média zero e desvio padrão um. Esse processo é realizado subtraindo a média de cada característica e dividindo pelo desvio padrão, garantindo que cada variável contribua igualmente para a análise e treinamento do modelo.
 
 
-# Metodologia
+
+
+
+
+
+
+
+# Metodologia utilizada
 
 ## Coleta de dados
 
@@ -82,7 +106,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 ## Dados não normalizados
 
 
-### knn reduzido 
+### KNN reduzido 
 ![Matriz de confusão do processo de inferencia knn com dados não normalizados e dataset reduzido](figuras/knn_nao_normalizado_min_dataset.png)
 <p align="center">
   Matriz de confusão do knn não normalizado e dataset reduzido.
@@ -92,7 +116,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 * Precisão: 86.85%
 * Revocação: 86.69%
 
-### knn expandido
+### KNN expandido
 ![Matriz de confusão do processo de inferencia knn com dados não normalizados e dataset expandido](figuras/knn_normalizado_max_dataset.png)
 <p align="center">
   Matriz de confusão do knn não normalizado e dataset expandido.
@@ -102,7 +126,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 * Precisão: 95.19%
 * Revocação: 94.95%
 
-### svm reduzido 
+### SVM reduzido 
 ![Matriz de confusão do processo de inferencia svm com dados não normalizados e dataset reduzido](figuras/svm_nao_normalizado_min_dataset.png)
 <p align="center">
   Matriz de confusão do svm não normalizado e dataset reduzido.
@@ -112,7 +136,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 * Precisão: 48.63%
 * Revocação: 65.56%
 
-### svm expandido
+### SVM expandido
 ![Matriz de confusão do processo de inferencia svm com dados não normalizados e dataset expandido](figuras/svm_nao_norrmalizado_max_dataset.png)
 <p align="center">
   Matriz de confusão do svm não normalizado e dataset expandido.
@@ -124,7 +148,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 
 ## Dados normalizados
 
-### knn reduzido
+### KNN reduzido
 ![Matriz de confusão do processo de inferencia knn com dados normalizados e dataset reduzido](figuras/knn_normalizado_min_dataset.png)
 <p align="center">
   Matriz de confusão do knn normalizado e dataset reduzido.
@@ -134,7 +158,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 * Precisão: 90.92%
 * Revocação: 89.66%
 
-### knn expandido
+### KNN expandido
 
 ![Matriz de confusão do processo de inferencia knn com dados normalizados e dataset expandido](figuras/knn_normalizado_min_dataset.png)
 <p align="center">
@@ -145,7 +169,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 * Precisão: 96.07%
 * Revocação: 95.96%
 
-### svm reduzido
+### SVM reduzido
 
 ![Matriz de confusão do processo de inferencia svm com dados normalizados e dataset reduzido](figuras/svm_normalizado_min_dataset.png)
 <p align="center">
@@ -156,7 +180,7 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 * Precisão: 89.16%
 * Revocação: 88.62%
 
-### svm expandido
+### SVM expandido
 
 ![Matriz de confusão do processo de inferencia svm com dados normalizados e dataset expandido](figuras/svm_normalizado_max_dataset.png)
 <p align="center">
@@ -166,4 +190,14 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 * Acurácia: 91.18%
 * Precisão: 91.11%
 * evocação: 90.91%
+
+
+## Conclusão e Discussões
+
+Embora seja um projeto de escala reduzida, ele foi fundamental para compreender os principais aspectos e desafios na aplicação de algoritmos de aprendizado de máquina em processos de classificação. Desde a escolha do algoritmo até a coleta e o pré-processamento dos dados, o projeto ofereceu uma visão prática e valiosa das etapas envolvidas. Além disso, forneceu experiência crucial sobre a importância de um cuidado minucioso na coleta de dados, pois qualquer escolha inadequada pode gerar dificuldades desnecessárias durante o preparo dos dados para o treinamento e na análise subsequente.
+
+
+Os resultados obtidos indicam que o modelo K-Nearest Neighbors (KNN) apresentou um desempenho superior ao Support Vector Machine (SVM), mesmo sem a necessidade de normalização dos dados. As métricas de inferência mostraram resultados razoavelmente bons, com estatísticas superiores a 90%. No entanto, o maior desafio identificado foi o tratamento e a inferência de novos dados em tempo real. Embora não tenha sido encontrada uma solução definitiva para esse problema neste trabalho, é provável que existam diversas abordagens possíveis para resolvê-lo. Uma possível abordagem alternativa seria permitir que os usuários controlassem o tempo durante o qual o microfone permaneceria aberto para capturar os comandos na coleta dos dados de treinamento. A expectativa é que o processo de inferência se tornasse mais preciso, pois os dados de treinamento seriam coletados nas mesmas condições dos dados de inferência, resultando em um ajuste mais adequado ao ambiente real de uso.
+
+
 
