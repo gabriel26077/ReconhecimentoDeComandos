@@ -1,6 +1,8 @@
 import os
 import librosa
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
@@ -9,7 +11,6 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, confu
 # Lista de diretórios dos arquivos de áudio
 audio_dirs = [
     'dataset/',
-    'dataset_extra/'
     # Adicione mais diretórios se necessário
 ]
 
@@ -71,5 +72,11 @@ print(set(y_train))
 print(f'Acurácia: {accuracy * 100:.2f}%')
 print(f'Precisão: {precision * 100:.2f}%')
 print(f'Revocação: {recall * 100:.2f}%')
-print('Matriz de Confusão:')
-print(conf_matrix)
+
+# Plotar a matriz de confusão
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=set(y_train), yticklabels=set(y_train))
+plt.xlabel('Predição')
+plt.ylabel('Real')
+plt.title('Matriz de Confusão')
+plt.show()
