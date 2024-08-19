@@ -165,5 +165,5 @@ Segue abaixo alguns detalhes das diferentes inferencias realizadas.
 
 * Acurácia: 91.18%
 * Precisão: 91.11%
-R* evocação: 90.91%
+* evocação: 90.91%
 
