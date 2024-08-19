@@ -200,4 +200,37 @@ Embora seja um projeto de escala reduzida, ele foi fundamental para compreender 
 Os resultados obtidos indicam que o modelo K-Nearest Neighbors (KNN) apresentou um desempenho superior ao Support Vector Machine (SVM), mesmo sem a necessidade de normalização dos dados. As métricas de inferência mostraram resultados razoavelmente bons, com estatísticas superiores a 90%. No entanto, o maior desafio identificado foi o tratamento e a inferência de novos dados em tempo real. Embora não tenha sido encontrada uma solução definitiva para esse problema neste trabalho, é provável que existam diversas abordagens possíveis para resolvê-lo. Uma possível abordagem alternativa seria permitir que os usuários controlassem o tempo durante o qual o microfone permaneceria aberto para capturar os comandos na coleta dos dados de treinamento. A expectativa é que o processo de inferência se tornasse mais preciso, pois os dados de treinamento seriam coletados nas mesmas condições dos dados de inferência, resultando em um ajuste mais adequado ao ambiente real de uso.
 
 
+# Estrutura do Projeto
+
+# Estrutura do Projeto
+
+Abaixo segue uma breve explicação dos princiáis diretórios do projeto
+
+#### area de inferencia/
+Este diretório contém os códigos responsáveis pela inferência em tempo real usando modelos pré-treinados. Note que o desempenho da inferência em tempo real pode ser limitado.
+
+#### codigos_de_modelo_teste/
+Aqui você encontrará códigos para testes rápidos, onde o treinamento e a inferência dos modelos ocorrem simultaneamente durante a execução. Ideal para experimentos e validações rápidas.
+
+#### dataset/
+Contém áudios de pelo menos 16 pessoas, divididos entre homens e mulheres, com amostras balanceadas das diferentes classes.
+
+#### dataset_extra/
+Diretório com dados adicionais de novos voluntários, oferecendo novas amostras das classes "vermelho" e "verde", que apresentavam maior sobreposição durante o processo de inferência.
+
+#### exportadores_de_modelos/
+Códigos para treinar e exportar modelos, permitindo seu uso em etapas posteriores do projeto.
+
+#### modelos_exportados/
+Local onde os modelos treinados são armazenados para utilização futura.
+
+#### scalers/
+Contém os scalers utilizados para a normalização dos dados de treinamento, que devem ser aplicados para normalizar novos dados durante a inferência.
+
+
+
+
+
+
+
 
