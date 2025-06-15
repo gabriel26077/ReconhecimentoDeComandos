@@ -10,8 +10,8 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, confu
 
 # Lista de diretórios dos arquivos de áudio
 audio_dirs = [
-    'dataset/',
-    'dataset_extra/'
+    'dataset/audios/',
+    'dataset_extra/audios/'
 ]
 
 # Combinar todos os arquivos de áudio em uma lista única

@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Caminho para o diretório dos arquivos de áudio de teste e modelos
-audio_test_dir = 'dataset_testes/'
+audio_test_dir = 'dataset_testes/audios/'
 
 model_path = 'modelos_exportados/knn_modelo_01_todos_os_dados.pkl'
 scaler_path = 'scalers/scaler_knn_modelo_01_todos_os_dados.pkl'

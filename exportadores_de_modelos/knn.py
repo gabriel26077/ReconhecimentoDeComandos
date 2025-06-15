@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 
 # Lista de diretórios dos arquivos de áudio
-audio_dirs = ['dataset/', 'dataset_extra/']
+audio_dirs = ['dataset/audios/', 'dataset_extra/audios/']
 
 # Combinar todos os arquivos de áudio em uma lista única
 audio_files = []
