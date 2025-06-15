@@ -1,0 +1,7 @@
+Sem data argumentation
+
+Acurácia: 96.67%
+Precisão:  96.70%
+Recall:    96.67%
+F1-score:  96.67%
+
